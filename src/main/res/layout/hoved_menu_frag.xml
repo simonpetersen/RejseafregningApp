@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.blumen.rejseafregning.HovedMenu_frag">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Velkommen til rejseafregnings appen"
+        android:id="@+id/textView2"
+        android:layout_marginTop="43dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info om databasen"
+        android:id="@+id/DBInfoBtn"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="93dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Personlig info"
+        android:id="@+id/PersInfoBtn"
+        android:layout_below="@+id/DBInfoBtn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Opdater adresse"
+        android:id="@+id/AdresseBtn"
+        android:layout_below="@+id/PersInfoBtn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Opret opgave"
+        android:id="@+id/OpgaveBtn"
+        android:layout_below="@+id/AdresseBtn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logud"
+        android:id="@+id/LogudBtn"
+        android:layout_below="@+id/OpgaveBtn"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.blumen.rejseafregning.OpdaterAdresse_frag">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Indtast din nye adresse"
+        android:id="@+id/textView8"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/PostnrInput"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp"
+        android:hint="Postnr" />
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/VejInput"
+        android:layout_below="@+id/PostnrInput"
+        android:layout_centerHorizontal="true"
+        android:hint="Vejnavn" />
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/HusInput"
+        android:layout_below="@+id/VejInput"
+        android:layout_centerHorizontal="true"
+        android:hint="Husnr" />
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/EtageInput"
+        android:layout_below="@+id/HusInput"
+        android:layout_centerHorizontal="true"
+        android:hint="Etage" />
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoorInput"
+        android:layout_below="@+id/EtageInput"
+        android:layout_centerHorizontal="true"
+        android:hint="Dør" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gem"
+        android:id="@+id/GemBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="43dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuller"
+        android:id="@+id/AnnullerBtn"
+        android:layout_alignBottom="@+id/GemBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="32dp" />
+</RelativeLayout>
