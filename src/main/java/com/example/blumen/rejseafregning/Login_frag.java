@@ -1,6 +1,7 @@
 package com.example.blumen.rejseafregning;
 
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -18,22 +19,22 @@ import java.io.IOException;
 public class Login_frag extends Fragment implements View.OnClickListener{
     EditText bruger, password;
     Button login;
-    Logik logik;
     String brugerLogin;
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle savedInstanceState){
         View rod = i.inflate(R.layout.login_frag, container, false);
 
         bruger = (EditText) rod.findViewById(R.id.BrugerInput);
+        bruger.setText("DIMO");
         password = (EditText) rod.findViewById(R.id.PasswordInput);
+        password.setText("123");
         login = (Button) rod.findViewById(R.id.LoginBtn);
-        progressBar = (ProgressBar) rod.findViewById(R.id.progressBar);
-        progressBar.setVisibility(ProgressBar.INVISIBLE);
         login.setOnClickListener(this);
 
-        logik = new Logik();
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Logger ind..");
 
         return rod;
     }
@@ -41,25 +42,26 @@ public class Login_frag extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if(v == login){
-            progressBar.setVisibility(ProgressBar.VISIBLE);
-            Logik.Bruger = bruger.getText().toString();
-            Logik.Pass = password.getText().toString();
+            progressDialog.show();
+            final String brugernavn = bruger.getText().toString();
+            final String adgangskode = password.getText().toString();
 
             new AsyncTask() {
                 @Override
                 protected String doInBackground(Object[] params) {
                     try {
-                        brugerLogin = logik.stringFromURL(Logik.url + "opdater/" + Logik.Bruger + "/" + Logik.Pass);
+                        brugerLogin = Logik.instans.stringFromURL("opdater/" + brugernavn + "/" + adgangskode);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if(brugerLogin.substring(0, 17).equals("Koden er korrekt.")) return Logik.Bruger;
+                    if(brugerLogin.substring(0, 17).equals("Koden er korrekt.")) return brugernavn;
                     return null;
                 }
 
                 @Override
                 protected void onPostExecute(Object result) {
                     if (result != null) {
+                        progressDialog.hide();
                         getFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_felt, new HovedMenu_frag())
                                 .addToBackStack(null)

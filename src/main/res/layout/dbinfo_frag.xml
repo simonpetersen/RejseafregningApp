@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Antallet af brugere"
-        android:id="@+id/EditText1"
+        android:id="@+id/BrugerText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="77dp"
@@ -22,7 +22,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Antallet af rejseafregninger"
         android:id="@+id/Edittext2"
-        android:layout_below="@+id/EditText1"
+        android:layout_below="@+id/BrugerText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
         android:textStyle="bold" />
@@ -33,7 +33,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="00"
         android:id="@+id/BrugerCount"
-        android:layout_below="@+id/EditText1"
+        android:layout_below="@+id/BrugerText"
         android:layout_centerHorizontal="true" />
 
     <TextView

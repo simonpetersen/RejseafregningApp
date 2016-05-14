@@ -14,12 +14,16 @@ import java.nio.charset.Charset;
  */
 public class Logik {
 
-    public static String Bruger = "";
-    public static String Pass = "";
-    public static String url = "http://ec2-52-39-152-237.us-west-2.compute.amazonaws.com:8080/Rejseafregning/api/";
+    public static Logik instans = new Logik();
+
+    private String url;
+
+    public Logik() {
+        url = "http://ec2-52-39-152-237.us-west-2.compute.amazonaws.com:8080/Rejseafregning/api/";
+    }
 
     public String stringFromURL(String url) throws IOException {
-        InputStream is = new URL(url).openStream();
+        InputStream is = new URL(this.url+url).openStream();
         BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
         StringBuilder sb = new StringBuilder();
         String nl = rd.readLine();
