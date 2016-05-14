@@ -16,7 +16,7 @@ public class Logik {
 
     public static Logik instans = new Logik();
 
-    private String url;
+    private String url, brugernavn, adgangskode, resp;
 
     public Logik() {
         url = "http://ec2-52-39-152-237.us-west-2.compute.amazonaws.com:8080/Rejseafregning/api/";
@@ -34,16 +34,14 @@ public class Logik {
         return sb.toString();
     }
 
-    public String putUrl(String url, String urlParameters) throws IOException
+    public String putUrl(String method, String url, String urlParameters) throws IOException
     {
-        String resp = null;
-
-        URL newURL = new URL(url);
+        URL newURL = new URL(this.url+url);
 
         HttpURLConnection connection = (HttpURLConnection) newURL.openConnection();
         connection.setReadTimeout(10000);
         connection.setConnectTimeout(15000);
-        connection.setRequestMethod("PUT");
+        connection.setRequestMethod(method);
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         connection.setDoInput(true);
         connection.setDoOutput(true);
@@ -56,7 +54,6 @@ public class Logik {
         BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String line = "";
         StringBuilder responseOutput = new StringBuilder();
-
         while((line = br.readLine()) != null)
         {
             responseOutput.append(line);
@@ -68,4 +65,24 @@ public class Logik {
 
         return resp;
     }
+
+    public String getAdgangskode() {
+        return adgangskode;
+    }
+
+    public void setAdgangskode(String adgangskode) {
+        this.adgangskode = adgangskode;
+    }
+
+    public String getBrugernavn() {
+        return brugernavn;
+    }
+
+    public void setBrugernavn(String brugernavn) {
+        this.brugernavn = brugernavn;
+    }
+
+    public String getResponse() { return resp; }
+
+    public void setResponse(String response) { this.resp = response; }
 }

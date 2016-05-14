@@ -52,8 +52,8 @@ public class HovedMenu_frag extends Fragment implements View.OnClickListener{
                     .addToBackStack(null)
                     .commit();
         if (v == LogudBtn) {
-            Logik.Bruger = "";
-            Logik.Pass = "";
+            Logik.instans.setBrugernavn("");
+            Logik.instans.setAdgangskode("");
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragment_felt, new Login_frag())
                     .addToBackStack(null)

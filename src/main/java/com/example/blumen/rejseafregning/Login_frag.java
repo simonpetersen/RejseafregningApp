@@ -43,18 +43,19 @@ public class Login_frag extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         if(v == login){
             progressDialog.show();
-            final String brugernavn = bruger.getText().toString();
-            final String adgangskode = password.getText().toString();
+            Logik.instans.setBrugernavn(bruger.getText().toString());
+            Logik.instans.setAdgangskode(password.getText().toString());
 
             new AsyncTask() {
                 @Override
                 protected String doInBackground(Object[] params) {
                     try {
-                        brugerLogin = Logik.instans.stringFromURL("opdater/" + brugernavn + "/" + adgangskode);
+                        brugerLogin = Logik.instans.stringFromURL("opdater/" + Logik.instans.getBrugernavn() + "/" +
+                                Logik.instans.getAdgangskode());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if(brugerLogin.substring(0, 17).equals("Koden er korrekt.")) return brugernavn;
+                    if(brugerLogin.substring(0, 17).equals("Koden er korrekt.")) return "Success!";
                     return null;
                 }
 

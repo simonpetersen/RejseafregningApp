@@ -25,10 +25,10 @@ public class AdresseOpdateret_frag extends Fragment implements View.OnClickListe
         MenuBtn = (Button) rod.findViewById(R.id.HovedMenuBtn);
         MenuBtn.setOnClickListener(this);
 
-        String[] strs = OpdaterAdresse_frag.res.split("\\n");
+        String[] strs = Logik.instans.getResponse().split("\\n");
 
-        GammelAdresse.setText(strs[1].substring(23, strs[1].length()));
-        NyAdresse.setText(strs[3].substring(16, strs[3].length()));
+        GammelAdresse.setText(strs[1].substring(23));
+        NyAdresse.setText(strs[3].substring(16));
 
         return rod;
     }
