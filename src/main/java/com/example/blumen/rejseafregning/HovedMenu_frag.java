@@ -51,6 +51,11 @@ public class HovedMenu_frag extends Fragment implements View.OnClickListener{
                     .replace(R.id.fragment_felt, new OpdaterAdresse_frag())
                     .addToBackStack(null)
                     .commit();
+        if (v == OpgaveBtn)
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_felt, new OpretOpgave_frag())
+                    .addToBackStack(null)
+                    .commit();
         if (v == LogudBtn) {
             Logik.instans.setBrugernavn("");
             Logik.instans.setAdgangskode("");

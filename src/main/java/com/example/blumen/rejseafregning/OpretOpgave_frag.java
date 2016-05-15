@@ -24,7 +24,7 @@ public class OpretOpgave_frag extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle savedInstanceState) {
-        View rod = i.inflate(R.layout.opdater_adresse_frag, container, false);
+        View rod = i.inflate(R.layout.opret_opgave_frag, container, false);
 
         opgText = (EditText) rod.findViewById(R.id.opgaveText);
         tilbageButton = (Button) rod.findViewById(R.id.tilbageButton);
@@ -70,14 +70,12 @@ public class OpretOpgave_frag extends Fragment implements View.OnClickListener {
 
     private void gemOpgave(String result) {
         progressDialog.hide();
-        if (result != null && result.equals("Opgave er oprettet")) {
-
+        if (result != null && result.equals("Opgave er oprettet"))
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragment_felt, new HovedMenu_frag())
                     .addToBackStack(null)
                     .commit();
-        } else {
+        else
             Toast.makeText(getActivity(), "Der skete en fejl!", Toast.LENGTH_LONG);
-        }
     }
 }

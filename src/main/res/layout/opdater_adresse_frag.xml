@@ -23,7 +23,7 @@
         android:layout_below="@+id/textView8"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="73dp"
-        android:hint="Postnr" />
+        android:hint="Postnummer" />
 
     <EditText
         android:layout_width="160dp"
@@ -39,7 +39,7 @@
         android:id="@+id/HusInput"
         android:layout_below="@+id/VejInput"
         android:layout_centerHorizontal="true"
-        android:hint="Husnr" />
+        android:hint="Husnummer" />
 
     <EditText
         android:layout_width="160dp"
