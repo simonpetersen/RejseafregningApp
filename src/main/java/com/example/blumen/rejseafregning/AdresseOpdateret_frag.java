@@ -9,26 +9,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 public class AdresseOpdateret_frag extends Fragment implements View.OnClickListener{
 
-    TextView gammelAdresse, nyAdresse;
+    TextView gammelAdresse, nyAdresse, beskedView;
     Button menuBtn;
 
     @Override
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle savedInstanceState) {
-        View rod =  i.inflate(R.layout.adresse_opdateret_frag, container, false);
-
-        gammelAdresse = (TextView) rod.findViewById(R.id.GammelAdresse);
-        nyAdresse = (TextView) rod.findViewById(R.id.NyAdresse);
+        String[] strs = Logik.instans.getResponse().split("\\\n");
+        View rod;
+        if (strs.length == 1) {
+            rod = i.inflate(R.layout.ny_adresse_frag, container, false);
+            beskedView = (TextView) rod.findViewById(R.id.beskedView);
+            beskedView.setText(Logik.instans.getResponse());
+        } else {
+            rod =  i.inflate(R.layout.adresse_opdateret_frag, container, false);
+            gammelAdresse = (TextView) rod.findViewById(R.id.GammelAdresse);
+            nyAdresse = (TextView) rod.findViewById(R.id.NyAdresse);
+            gammelAdresse.setText(strs[1].substring(23));
+            nyAdresse.setText(strs[3].substring(16));
+        }
 
         menuBtn = (Button) rod.findViewById(R.id.HovedMenuBtn);
         menuBtn.setOnClickListener(this);
-
-        String[] strs = Logik.instans.getResponse().split("\\\n");
-
-        gammelAdresse.setText(strs[1].substring(23));
-        nyAdresse.setText(strs[3].substring(16));
 
         return rod;
     }

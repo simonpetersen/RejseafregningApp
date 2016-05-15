@@ -29,8 +29,6 @@ public class HovedMenu_frag extends Fragment implements View.OnClickListener{
         OpgaveBtn.setOnClickListener(this);
         LogudBtn.setOnClickListener(this);
 
-
-
         return rod;
     }
 
